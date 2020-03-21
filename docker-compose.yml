@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
@@ -17,7 +17,7 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - "8000:80"
+      - ${PUBLIC_IP}
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
